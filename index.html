@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Tax Calculator</h1>
+    <form id="taxForm">
+        <label for="income">Gross Annual Income:</label>
+        <input type="number" id="income" name="income" required>
+        <span class="error-icon" id="incomeError" title="Invalid input!"></span><br><br>
+
+        <label for="extraIncome">Extra Income:</label>
+        <input type="number" id="extraIncome" name="extraIncome">
+        <span class="error-icon" id="extraIncomeError" title="Invalid input!"></span><br><br>
+
+        <label for="deductions">Deductions:</label>
+        <input type="number" id="deductions" name="deductions">
+        <span class="error-icon" id="deductionsError" title="Invalid input!"></span><br><br>
+
+        <label for="age">Age:</label>
+        <select id="age" name="age">
+            <option value="">Select Age</option>
+            <option value="<40">&lt; 40</option>
+            <option value="≥40 &amp; <60">&ge; 40 &amp; &lt; 60</option>
+            <option value="≥60">&ge; 60</option>
+        </select>
+        <span class="error-icon" id="ageError" title="Please select age!"></span><br><br>
+
+        <button type="button" onclick="calculateTax()">Submit</button>
+    </form>
+
+    <div id="modal" style="display: none;">
+        <h2>Your overall income will be</h2>
+        <p id="taxResult"></p>
+        <p>after tax deductions</p>
+        <br>
+        <button id="closeModal">Close</button>
+    </div>
+    <script src="app.js"></script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyA8z7By19OzwBH5-0mSulYjNUGJiPD2EWY",
+          authDomain: "tax-calculator-413e7.firebaseapp.com",
+          projectId: "tax-calculator-413e7",
+          storageBucket: "tax-calculator-413e7.appspot.com",
+          messagingSenderId: "646596128877",
+          appId: "1:646596128877:web:c690767f8dc7720a3acf64",
+          measurementId: "G-W279YF6PFL"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+
+
+</body>
+</html>
